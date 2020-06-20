@@ -1,0 +1,14 @@
+<div class="product-container">
+  <div>
+    <img class="product-img" src="{{ data.foto }}" />
+  </div>
+  <div>
+    <p class="product-name">{{ data.nombre }}</p>
+
+    <p class="product-price">€{{ data.precio }}</p>
+
+    <button routerLink="/product/{{ data.id }}" class="btn" mat-raised-button>
+      Ver Detalle
+    </button>
+  </div>
+</div>

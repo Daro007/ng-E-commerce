@@ -1,0 +1,30 @@
+/* MOBILE FIRST */
+.footer {
+  text-align: center;
+  background-color: #302d3c;
+  padding: 2em;
+}
+.sello-footer,
+.footer-link {
+  color: #ffffff;
+}
+.footer-link {
+  font-size: 2rem;
+  padding: 1em 0.5em;
+  transition: 0.3s;
+}
+.footer-link:hover {
+  color: #eb2a41;
+  cursor: pointer;
+}
+.svg-footer {
+  padding-top: 0.5em;
+}
+@media (min-width: 600px) {
+  .footer {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 2em 3em;
+    min-height: 12vh;
+  }
+}

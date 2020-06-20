@@ -1,0 +1,75 @@
+<div class="log-in">
+  <h2 class="form-title">Inicia sesión</h2>
+  <form [formGroup]="myForm" (ngSubmit)="login()" class="form">
+    <div class="wrapper">
+      <div>
+        <br />
+        <input
+          [ngClass]="{
+            error:
+              myForm.get('email').hasError('required') &&
+              myForm.get('email').dirty
+          }"
+          class="form-input"
+          type="text"
+          formControlName="email"
+          placeholder="E-mail"
+        />
+        <div>
+          <small
+            *ngIf="myForm.get('email').errors && myForm.get('email').dirty"
+            [ngClass]="{
+              errortext:
+                myForm.get('email').hasError('required') &&
+                myForm.get('email').dirty
+            }"
+          >
+            El campo es obligatorio
+          </small>
+        </div>
+      </div>
+      <div>
+        <br />
+        <input
+          placeholder="Contraseña"
+          type="password"
+          class="form-input"
+          formControlName="password"
+          [ngClass]="{
+            error:
+              myForm.get('password').hasError('required') &&
+              myForm.get('password').dirty
+          }"
+        />
+        <div
+          *ngIf="myForm.get('password').errors && myForm.get('password').dirty"
+        >
+          <small
+            *ngIf="myForm.get('password').hasError('required')"
+            [ngClass]="{
+              errortext:
+                myForm.get('password').hasError('required') &&
+                myForm.get('password').dirty
+            }"
+            >El campo es obligatorio</small
+          >
+          <small
+            [ngClass]="{
+              errortext: myForm.get('password').hasError('minlength')
+            }"
+            *ngIf="myForm.get('password').hasError('minlength')"
+            >Debe contener al menos 6 caracteres</small
+          >
+        </div>
+      </div>
+      <button
+        class="btn"
+        [disabled]="myForm.invalid"
+        type="submit"
+        mat-raised-button
+      >
+        Inicia sesión
+      </button>
+    </div>
+  </form>
+</div>

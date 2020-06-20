@@ -1,0 +1,140 @@
+<div class="sign-up">
+  <h2 class="form-title">Formulario de registro</h2>
+  <form [formGroup]="myForm" (ngSubmit)="signup()" class="form">
+    <div class="wrapper">
+      <div>
+        <br />
+        <input
+          class="form-input"
+          type="text"
+          placeholder="Escriba su nombre..."
+          formControlName="nombre"
+          [ngClass]="{
+            error:
+              myForm.get('nombre').hasError('required') &&
+              myForm.get('nombre').dirty
+          }"
+        />
+        <div>
+          <small
+            *ngIf="myForm.get('nombre').errors && myForm.get('nombre').dirty"
+            [ngClass]="{
+              errortext:
+                myForm.get('nombre').hasError('required') &&
+                myForm.get('nombre').dirty
+            }"
+          >
+            El campo es obligatorio
+          </small>
+        </div>
+
+        <br />
+        <input
+          class="form-input"
+          type="text"
+          placeholder="Escriba su apellido..."
+          formControlName="apellido"
+          [ngClass]="{
+            error:
+              myForm.get('apellido').hasError('required') &&
+              myForm.get('apellido').dirty
+          }"
+        />
+        <div>
+          <small
+            *ngIf="
+              myForm.get('apellido').errors && myForm.get('apellido').dirty
+            "
+            [ngClass]="{
+              errortext:
+                myForm.get('apellido').hasError('required') &&
+                myForm.get('apellido').dirty
+            }"
+          >
+            El campo es obligatorio
+          </small>
+        </div>
+      </div>
+      <div>
+        <br />
+        <input
+          class="form-input"
+          type="number"
+          placeholder="Un número de teléfono..."
+          formControlName="telefono"
+        />
+      </div>
+      <div>
+        <br />
+        <input
+          [ngClass]="{
+            error:
+              myForm.get('email').hasError('required') &&
+              myForm.get('email').dirty
+          }"
+          class="form-input"
+          type="text"
+          formControlName="email"
+          placeholder="Ingrese su e-mail..."
+        />
+
+        <div>
+          <small
+            *ngIf="myForm.get('email').errors && myForm.get('email').dirty"
+            [ngClass]="{
+              errortext:
+                myForm.get('email').hasError('required') &&
+                myForm.get('email').dirty
+            }"
+          >
+            El campo es obligatorio
+          </small>
+        </div>
+      </div>
+      <div>
+        <br />
+        <input
+          [ngClass]="{
+            error:
+              myForm.get('password').hasError('required') &&
+              myForm.get('password').dirty
+          }"
+          class="form-input"
+          type="password"
+          placeholder="Escriba una contraseña..."
+          formControlName="password"
+        />
+        <div
+          *ngIf="myForm.get('password').errors && myForm.get('password').dirty"
+        >
+          <small
+            *ngIf="myForm.get('password').hasError('required')"
+            [ngClass]="{
+              errortext:
+                myForm.get('password').hasError('required') &&
+                myForm.get('password').dirty
+            }"
+            >El campo es obligatorio</small
+          >
+          <small
+            [ngClass]="{
+              errortext:
+                myForm.get('password').hasError('minlength') &&
+                myForm.get('password').dirty
+            }"
+            *ngIf="myForm.get('password').hasError('minlength')"
+            >Debe contener al menos 6 caracteres</small
+          >
+        </div>
+      </div>
+      <button
+        class="btn"
+        [disabled]="myForm.invalid"
+        type="submit"
+        mat-raised-button
+      >
+        Registrarme
+      </button>
+    </div>
+  </form>
+</div>

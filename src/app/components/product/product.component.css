@@ -1,0 +1,24 @@
+.product-img {
+  width: 100px;
+  border-radius: 5px;
+}
+.product-name,
+.product-price {
+  color: #302d3c;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 0em 2em;
+}
+.product-container {
+  display: flex;
+}
+.btn {
+  margin: 0em 2em;
+}
+
+/* DESKTOP */
+@media (min-width: 600px) {
+  .product-img {
+    width: 200px;
+  }
+}

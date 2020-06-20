@@ -1,0 +1,34 @@
+<div class="component">
+  <div class="loader" *ngIf="loader">
+    <app-loading></app-loading>
+  </div>
+  <div class="product-detail">
+    <div class="product-container">
+      <div>
+        <img class="product-img" src="{{ product.foto }}" />
+      </div>
+      <div>
+        <p class="product-name">{{ product.nombre }}</p>
+
+        <p class="product-price">€{{ product.precio }}</p>
+        <button mat-raised-button (click)="addItem()" *ngIf="!added">
+          Agregar
+          <mat-icon aria-hidden="false" aria-label="Cart"
+            >add_shopping_cart</mat-icon
+          >
+        </button>
+        <button mat-raised-button *ngIf="added" (click)="removeItem()">
+          Quitar
+        </button>
+        <br />
+        <small class="success" *ngIf="added"
+          >Producto añadido al carrito
+        </small>
+      </div>
+    </div>
+    <div class="product-descripcion">
+      <h3 class="descripcion">Descripción:</h3>
+      <i>{{ product.descripcion }}</i>
+    </div>
+  </div>
+</div>
